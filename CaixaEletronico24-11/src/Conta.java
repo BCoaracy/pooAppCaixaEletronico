@@ -1,4 +1,7 @@
 
+import java.util.ArrayList;
+
+
 
 public class Conta {
     
@@ -7,9 +10,8 @@ public class Conta {
     private double saldoDisp;
     private double saldoTotal;
     
-    public Conta(){
-        
-    };
+    public Conta(){ 
+    }
     
     public Conta(int codConta, String senha, double disp, double tota){
         setNumConta(codConta);
@@ -17,6 +19,8 @@ public class Conta {
         setSaldoTotal(tota);
         setSenha(senha);
     }
+    
+    
     
 //    public void creditar(double valor){
 //        //this.saldoDisp -= valor;
