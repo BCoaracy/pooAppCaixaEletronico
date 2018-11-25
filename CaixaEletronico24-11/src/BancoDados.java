@@ -9,11 +9,7 @@ public class BancoDados {
         this.listaConta.add(conta);
     }
     
-    public void imprimeLista(){
-        for(Conta conta : listaConta){
-            conta.toString();
-        }
-    }
+    
     
     
 }
