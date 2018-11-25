@@ -1,9 +1,15 @@
+
+
 public class Conta {
     
     private int numConta;
     private String senha;
     private double saldoDisp;
     private double saldoTotal;
+    
+    public Conta(){
+        
+    };
     
     public Conta(int codConta, String senha, double disp, double tota){
         setNumConta(codConta);
@@ -12,12 +18,12 @@ public class Conta {
         setSenha(senha);
     }
     
-    public void creditar(double valor){
-        //this.saldoDisp -= valor;
-        setSaldoDisp(getSaldoDisp() - valor);
-    }
+//    public void creditar(double valor){
+//        //this.saldoDisp -= valor;
+//        setSaldoDisp(getSaldoDisp() - valor);
+//    }
     
-    public void debitar(double valor){
+    public void deposita(double valor){
         //this.saldoDisp += valor;
         setSaldoDisp(getSaldoDisp() + valor);
     }
@@ -61,4 +67,11 @@ public class Conta {
         this.saldoTotal = input;
     }
     
+    public String toString() {
+        return String.format("Conta: "+getNumConta()+
+                "\nSaldo Disp: "+getSaldoDisp()+
+                "\nSaldo Total: "+getSaldoTotal()+
+                "\nSenha: "+getSenha()
+                  );
+    }
 }
