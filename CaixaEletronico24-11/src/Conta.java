@@ -31,12 +31,12 @@ public class Conta {
 //    }
     
     public boolean validaSenha(String input, BancoDados banco, int nConta){
-        for(int i=0; i < banco.listaConta.size();i++){
-            if(nConta == banco.listaConta.get(i).numConta && input.equals(banco.listaConta.get(i).senha)){
-                System.out.println("senha existe");
+        for(int i=0; i<banco.listaConta.size();i++){
+            if(nConta==banco.listaConta.get(i).getNumConta() && input.equals(banco.listaConta.get(i).getSenha())){
                 return true;
             }
         }
+        System.out.println("false!");
         return false;
     }
     

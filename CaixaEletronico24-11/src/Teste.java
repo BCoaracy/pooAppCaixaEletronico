@@ -50,7 +50,7 @@ public class Teste {
         }
             e.imprimeListaConta(b);
             
-            z.validaSenha("senha", b, 1);
+            z.validaSenhaConta(b);
 
     }
 }
