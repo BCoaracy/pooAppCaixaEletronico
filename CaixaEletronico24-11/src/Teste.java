@@ -6,8 +6,7 @@ public class Teste {
     public static void main(String[] args) {
 
         Scanner leia = new Scanner(System.in);
-
-        Conta c = new Conta();
+        
         Extrato e = new Extrato();
         Saque s = new Saque();
         Deposito d = new Deposito();
@@ -28,7 +27,7 @@ public class Teste {
         //CRIAR CONTA
         boolean saida = true;
         while (saida == true) {
-
+            Conta c = new Conta();
             System.out.println("digite o numero da conta: ");
             c.setNumConta(leia.nextInt());
             System.out.println("digite disp: ");

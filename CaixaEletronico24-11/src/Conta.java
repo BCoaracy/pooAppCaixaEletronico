@@ -72,10 +72,10 @@ public class Conta {
     }
     
     public String toString() {
-        return String.format("Conta: "+getNumConta()+
-                "\nSaldo Disp: "+getSaldoDisp()+
-                "\nSaldo Total: "+getSaldoTotal()+
-                "\nSenha: "+getSenha()
+        return String.format("Conta: "+this.getNumConta()+
+                "\nSaldo Disp: "+this.getSaldoDisp()+
+                "\nSaldo Total: "+this.getSaldoTotal()+
+                "\nSenha: "+this.getSenha()
                   );
     }
 }
