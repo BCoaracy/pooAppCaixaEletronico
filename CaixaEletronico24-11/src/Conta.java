@@ -18,23 +18,24 @@ public class Conta {
         setSaldoDisp(disp);
         setSaldoTotal(tota);
         setSenha(senha);
-    }
-    
-    
+    }    
     
 //    public void creditar(double valor){
 //        //this.saldoDisp -= valor;
 //        setSaldoDisp(getSaldoDisp() - valor);
 //    }
     
-    public void deposita(double valor){
-        //this.saldoDisp += valor;
-        setSaldoDisp(getSaldoDisp() + valor);
-    }
+//    public void deposita(double valor){
+//        //this.saldoDisp += valor;
+//        setSaldoDisp(getSaldoDisp() + valor);
+//    }
     
-    public boolean validaSenha(String input){
-        if(this.senha.equals(input)){
-            return true;
+    public boolean validaSenha(String input, BancoDados banco, int nConta){
+        for(int i=0; i < banco.listaConta.size();i++){
+            if(nConta == banco.listaConta.get(i).numConta && input.equals(banco.listaConta.get(i).senha)){
+                System.out.println("senha existe");
+                return true;
+            }
         }
         return false;
     }

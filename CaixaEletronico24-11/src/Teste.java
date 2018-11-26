@@ -7,10 +7,12 @@ public class Teste {
 
         Scanner leia = new Scanner(System.in);
         
+        
         Extrato e = new Extrato();
         Saque s = new Saque();
         Deposito d = new Deposito();
         BancoDados b = new BancoDados();
+        CaixaEletronico z = new CaixaEletronico();
 
         /*c.setNumConta(123);
         c.setSaldoDisp(1000.00);
@@ -47,6 +49,8 @@ public class Teste {
             }
         }
             e.imprimeListaConta(b);
+            
+            z.validaSenha("senha", b, 1);
 
     }
 }
