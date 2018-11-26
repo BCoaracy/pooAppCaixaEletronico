@@ -71,7 +71,7 @@ public class Conta {
         this.saldoTotal = input;
     }
     
-    public String toString() {
+    public String toString() {        
         return String.format("Conta: "+this.getNumConta()+
                 "\nSaldo Disp: "+this.getSaldoDisp()+
                 "\nSaldo Total: "+this.getSaldoTotal()+

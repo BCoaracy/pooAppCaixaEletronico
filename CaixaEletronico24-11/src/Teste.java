@@ -38,7 +38,7 @@ public class Teste {
             c.setSenha(leia.next());
             b.salvaConta(c);
             
-            e.imprimeListaConta(b);
+            
             
             System.out.println("digite S para sair ou N para continuar: ");
             String aux = leia.next();
@@ -46,6 +46,7 @@ public class Teste {
                 saida = false;
             }
         }
+            e.imprimeListaConta(b);
 
     }
 }
