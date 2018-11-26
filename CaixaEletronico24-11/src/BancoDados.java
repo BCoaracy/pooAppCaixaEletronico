@@ -6,7 +6,8 @@ public class BancoDados {
     ArrayList<Conta> listaConta = new ArrayList<Conta>();
     
     public void salvaConta(Conta conta){
-        this.listaConta.add(conta);
+        if(!listaConta.contains(conta))
+            this.listaConta.add(conta);
     }
     
     
