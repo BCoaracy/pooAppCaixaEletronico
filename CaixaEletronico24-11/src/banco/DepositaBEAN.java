@@ -1,12 +1,16 @@
 package banco;
 
-import testes.Transacao;
-
 public class DepositaBEAN extends Transacao{
     
     private int idDeposita;
     private double valorDeposita;
     private int idConta;
+
+    public DepositaBEAN(int idDeposita, double valorDeposita, int idConta) {
+        this.idDeposita = idDeposita;
+        this.valorDeposita = valorDeposita;
+        this.idConta = idConta;
+    }
 
     public int getIdDeposita() {
         return idDeposita;

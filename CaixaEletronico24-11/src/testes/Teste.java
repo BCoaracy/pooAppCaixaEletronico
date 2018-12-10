@@ -1,6 +1,7 @@
 package testes;
 
 
+import banco.Extrato;
 import banco.ContasBEAN;
 import banco.ContasDAO;
 import banco.MySQLDAO;

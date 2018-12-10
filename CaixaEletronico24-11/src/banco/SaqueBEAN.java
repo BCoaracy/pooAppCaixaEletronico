@@ -1,12 +1,16 @@
 package banco;
 
-import testes.Transacao;
-
 public class SaqueBEAN extends Transacao{
     
     private int idSaque;
     private double valorSaque;
     private int idConta;
+
+    public SaqueBEAN(int idSaque, double valorSaque, int idConta) {
+        this.idSaque = idSaque;
+        this.valorSaque = valorSaque;
+        this.idConta = idConta;
+    }
 
     public int getIdSaque() {
         return idSaque;

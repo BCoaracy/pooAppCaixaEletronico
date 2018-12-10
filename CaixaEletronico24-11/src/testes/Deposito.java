@@ -1,5 +1,7 @@
 package testes;
 
+import banco.Transacao;
+
 
 public class Deposito extends Transacao {
     
