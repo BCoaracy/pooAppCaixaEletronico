@@ -1,6 +1,16 @@
 package view;
 
+import banco.DepositaBEAN;
+import banco.DepositaDAO;
+import banco.ExtratoDAO;
+import banco.SaqueBEAN;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 public class Extrato extends javax.swing.JFrame {
+
+    public ExtratoDAO extrato = new ExtratoDAO();
 
     public Extrato() {
         initComponents();
@@ -111,22 +121,59 @@ public class Extrato extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDepositoExtratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepositoExtratoActionPerformed
-        // mano seguinte, ali no construtor to conseguindo printar a conta e a senha. No caso vo so precisar passar o numero da conta para buscar os depositos e os saques
-        /*
-        o que eu pensei?
-            cada botao saque/deposito, vai pesquisa e mostrar na tabela e o botao limpar so pra deixar a tabela clear
-            apos fazer isso, testa tudo pra nois, humilde. Ate agr por mim ta tudo certo.
-        OBS
-            caso tu queira implementar o excluir saques/depositos tem como, ja ta pronto o SQL, n sei se vou fazer isso.
-         */
+        DepositaBEAN depB = new DepositaBEAN();
+
+        //DepositaDAO depD = new DepositaDAO();
+        List<DepositaBEAN> lista = new ArrayList<DepositaBEAN>();
+        try {
+
+            lista = extrato.findAllDeposita(Login.nconta);
+
+            DefaultTableModel dtmPrincipal = (DefaultTableModel) tabelaExtrato.getModel();
+            dtmPrincipal.setNumRows(0);
+
+            for (int i = 0; i < lista.size(); i++) {
+                Object[] linha = {
+                    lista.get(i).getIdDeposita(),
+                    lista.get(i).getValorDeposita(),
+                    lista.get(i).getIdConta()
+                };
+                dtmPrincipal.addRow(linha);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_btnDepositoExtratoActionPerformed
 
     private void btnSaqueExtratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaqueExtratoActionPerformed
-        // TODO add your handling code here:
+        SaqueBEAN saqueB = new SaqueBEAN();
+
+        List<SaqueBEAN> lista = new ArrayList<SaqueBEAN>();
+        try {
+
+            lista = extrato.findAllSaques(Login.nconta);
+
+            DefaultTableModel dtmPrincipal = (DefaultTableModel) tabelaExtrato.getModel();
+            dtmPrincipal.setNumRows(0);
+
+            for (int i = 0; i < lista.size(); i++) {
+                Object[] linha = {
+                    lista.get(i).getIdSaque(),
+                    lista.get(i).getValorSaque(),
+                    lista.get(i).getIdConta()
+                };
+                dtmPrincipal.addRow(linha);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_btnSaqueExtratoActionPerformed
 
     private void btnLimpaExtratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpaExtratoActionPerformed
-        // TODO add your handling code here:
+        DefaultTableModel dtmPrincipal = (DefaultTableModel) tabelaExtrato.getModel();
+        dtmPrincipal.setNumRows(0);
     }//GEN-LAST:event_btnLimpaExtratoActionPerformed
 
     public static void main(String args[]) {

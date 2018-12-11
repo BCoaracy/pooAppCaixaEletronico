@@ -15,7 +15,7 @@ public class BancoDados extends CaixaEletronico {
     public Boolean isExist(String senha, String nconta) {
         Boolean result = false;
         ResultSet rs = null;
-        rs = MySQLDAO.getResultSet("SELECT * FROM contas WHERE senhaconta= ? AND idconta=?", senha, nconta);
+        rs = MySQLDAO.getResultSet("SELECT * FROM contas WHERE senhaconta= ? AND numconta=?", senha, nconta);
         try {
             if (rs.next()) {
                 result = true;

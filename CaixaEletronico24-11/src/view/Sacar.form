@@ -88,6 +88,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="CampoNContaSacar">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CampoNContaSacarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="CampoValorSacar">
         </Component>

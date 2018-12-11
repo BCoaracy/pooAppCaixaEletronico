@@ -26,6 +26,12 @@ public class Sacar extends javax.swing.JFrame {
 
         jLabel2.setText("CAIXA ELETRONICO");
 
+        CampoNContaSacar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoNContaSacarActionPerformed(evt);
+            }
+        });
+
         jLabel1.setText("nConta:");
 
         jLabel3.setText("valor:");
@@ -93,7 +99,9 @@ public class Sacar extends javax.swing.JFrame {
         SaqueBEAN saqueB = new SaqueBEAN();
         SaqueDAO saqueD = new SaqueDAO();
         try {
-
+            
+            System.out.println(CampoValorSacar.getText() + "-" + CampoNContaSacar.getText());
+            
             saqueB.setIdConta(CampoNContaSacar.getText());
             saqueB.setValorSaque(Double.parseDouble(CampoValorSacar.getText()));
             saqueD.adiciona(saqueB);
@@ -105,6 +113,10 @@ public class Sacar extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }//GEN-LAST:event_btnEfetuaSaqueActionPerformed
+
+    private void CampoNContaSacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoNContaSacarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoNContaSacarActionPerformed
 
     public void limpaCampo() {
 
