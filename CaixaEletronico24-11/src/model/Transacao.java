@@ -1,10 +1,10 @@
-package banco;
+package model;
 
-import banco.ContasBEAN;
-import banco.ContasDAO;
-import banco.DepositaBEAN;
-import banco.MySQLDAO;
-import banco.SaqueBEAN;
+import model.ContasBEAN;
+import model.ContasDAO;
+import model.DepositaBEAN;
+import model.MySQLDAO;
+import model.SaqueBEAN;
 
 public class Transacao {
 

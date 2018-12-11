@@ -1,9 +1,11 @@
-package banco;
+package controller;
 
-import banco.MySQLDAO;
+import model.MySQLDAO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import model.ContasBEAN;
+import model.MySQLDAO;
 
 public class BancoDados extends CaixaEletronico {
 

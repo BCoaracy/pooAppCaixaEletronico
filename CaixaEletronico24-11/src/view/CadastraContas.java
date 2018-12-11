@@ -1,8 +1,8 @@
 package view;
 
-import banco.ContasBEAN;
-import banco.ContasDAO;
-import banco.MySQLDAO;
+import model.ContasBEAN;
+import model.ContasDAO;
+import model.MySQLDAO;
 import javax.swing.JOptionPane;
 
 public class CadastraContas extends javax.swing.JFrame {

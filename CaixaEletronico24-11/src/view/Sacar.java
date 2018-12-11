@@ -1,7 +1,7 @@
 package view;
 
-import banco.SaqueBEAN;
-import banco.SaqueDAO;
+import model.SaqueBEAN;
+import model.SaqueDAO;
 import javax.swing.JOptionPane;
 
 public class Sacar extends javax.swing.JFrame {

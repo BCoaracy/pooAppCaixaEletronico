@@ -1,8 +1,8 @@
-package banco;
+package model;
 
-import banco.DepositaBEAN;
-import banco.MySQLDAO;
-import banco.SaqueBEAN;
+import model.DepositaBEAN;
+import model.MySQLDAO;
+import model.SaqueBEAN;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;

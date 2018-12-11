@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 11-Dez-2018 às 13:13
+-- Generation Time: 11-Dez-2018 às 13:38
 -- Versão do servidor: 10.1.35-MariaDB
 -- versão do PHP: 7.2.9
 
@@ -42,7 +42,7 @@ CREATE TABLE `contas` (
 
 INSERT INTO `contas` (`idconta`, `numconta`, `saldodispconta`, `saldototalconta`, `senhaconta`) VALUES
 (2, '01', '174.80', '1174.80', 'newchave'),
-(3, '295221', '39.00', '1039.00', 'root');
+(3, '295221', '132.00', '1132.00', 'root');
 
 -- --------------------------------------------------------
 
@@ -62,7 +62,12 @@ CREATE TABLE `deposita` (
 
 INSERT INTO `deposita` (`iddeposita`, `valordeposita`, `numcontadeposita`) VALUES
 (1, '20.00', '295221'),
-(2, '10.00', '295221');
+(2, '10.00', '295221'),
+(3, '666.00', '295221'),
+(4, '100.00', '295221'),
+(5, '111.00', '295221'),
+(6, '10.00', '543'),
+(7, '8.00', '295221');
 
 -- --------------------------------------------------------
 
@@ -84,7 +89,9 @@ INSERT INTO `saque` (`idsaque`, `valorsaque`, `numcontasaque`) VALUES
 (2, '25.20', '2'),
 (4, '5.00', '295221'),
 (7, '1.00', '295221'),
-(8, '2.00', '295221');
+(8, '2.00', '295221'),
+(9, '12.00', '295221'),
+(10, '8.00', '295221');
 
 --
 -- Indexes for dumped tables
@@ -122,13 +129,13 @@ ALTER TABLE `contas`
 -- AUTO_INCREMENT for table `deposita`
 --
 ALTER TABLE `deposita`
-  MODIFY `iddeposita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `iddeposita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `saque`
 --
 ALTER TABLE `saque`
-  MODIFY `idsaque` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idsaque` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

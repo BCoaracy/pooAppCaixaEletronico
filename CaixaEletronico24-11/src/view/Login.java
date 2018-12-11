@@ -1,7 +1,7 @@
 package view;
 
-import banco.BancoDados;
-import banco.MySQLDAO;
+import controller.BancoDados;
+import model.MySQLDAO;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {

@@ -1,6 +1,7 @@
-package banco;
+package controller;
 
 import java.util.Scanner;
+import model.ContasBEAN;
 
 public abstract class CaixaEletronico {    
     

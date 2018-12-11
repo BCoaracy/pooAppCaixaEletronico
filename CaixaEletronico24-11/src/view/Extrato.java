@@ -1,9 +1,9 @@
 package view;
 
-import banco.DepositaBEAN;
-import banco.DepositaDAO;
-import banco.ExtratoDAO;
-import banco.SaqueBEAN;
+import model.DepositaBEAN;
+import model.DepositaDAO;
+import model.ExtratoDAO;
+import model.SaqueBEAN;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;

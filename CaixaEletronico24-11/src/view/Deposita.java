@@ -1,7 +1,7 @@
 package view;
 
-import banco.DepositaBEAN;
-import banco.DepositaDAO;
+import model.DepositaBEAN;
+import model.DepositaDAO;
 import javax.swing.JOptionPane;
 
 public class Deposita extends javax.swing.JFrame {
