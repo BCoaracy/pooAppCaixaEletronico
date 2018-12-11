@@ -6,7 +6,7 @@ import banco.DepositaBEAN;
 import banco.MySQLDAO;
 import banco.SaqueBEAN;
 
-public class Transacao extends ContasDAO {
+public class Transacao {
 
     private static final String QUERYSAQUE = "UPDATE contas c "
             + "INNER JOIN saque s on (s.idconta = c.idconta)"

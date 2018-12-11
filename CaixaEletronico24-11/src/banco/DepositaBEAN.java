@@ -4,9 +4,13 @@ public class DepositaBEAN extends Transacao{
     
     private int idDeposita;
     private double valorDeposita;
-    private int idConta;
+    private String idConta;
 
-    public DepositaBEAN(int idDeposita, double valorDeposita, int idConta) {
+    public DepositaBEAN() {
+        this.valorDeposita = 0;
+    }
+
+    public DepositaBEAN(int idDeposita, double valorDeposita, String idConta) {
         this.idDeposita = idDeposita;
         this.valorDeposita = valorDeposita;
         this.idConta = idConta;
@@ -28,11 +32,11 @@ public class DepositaBEAN extends Transacao{
         this.valorDeposita = valorDeposita;
     }
 
-    public int getIdConta() {
+    public String getIdConta() {
         return idConta;
     }
 
-    public void setIdConta(int idConta) {
+    public void setIdConta(String idConta) {
         this.idConta = idConta;
     }
     

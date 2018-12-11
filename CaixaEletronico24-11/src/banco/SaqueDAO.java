@@ -1,6 +1,12 @@
 package banco;
 
 public class SaqueDAO extends Transacao{
+
+    public SaqueDAO() {
+        MySQLDAO.getConnection();
+    }
+    
+    
     
     public void adiciona(SaqueBEAN saque){
         String query = "INSERT INTO saque(idconta,valorsaque) values(?,?)";

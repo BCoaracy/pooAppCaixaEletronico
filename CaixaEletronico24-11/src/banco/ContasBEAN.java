@@ -3,7 +3,7 @@ package banco;
 public class ContasBEAN {
     
     private int idConta;
-    private String numConta;
+    private String numConta;//idconta das outras tabelas
     private double saldoDispConta;
     private double saldoTotalConta;
     private String senhaConta;

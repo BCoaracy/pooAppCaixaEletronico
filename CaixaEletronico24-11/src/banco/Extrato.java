@@ -8,6 +8,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Extrato extends Transacao {
+
+    public Extrato() {
+        MySQLDAO.getConnection();
+    }
+    
+    
 //-----------------SAQUE-------------------------------------------------------------------------------------------
     public ArrayList<SaqueBEAN> findAllSaques() {
         return listaSaques("SELECT * FROM saque ORDER BY idsaque");
@@ -19,7 +25,7 @@ public class Extrato extends Transacao {
         rs = MySQLDAO.getResultSet(query);
         try {
             while (rs.next()) {
-                lista.add(new SaqueBEAN(rs.getInt("idsaque"), rs.getDouble("valorsaque"), rs.getInt("idconta")));
+                lista.add(new SaqueBEAN(rs.getInt("idsaque"), rs.getDouble("valorsaque"), rs.getString("idconta")));
             }
             rs.close();
         } catch (SQLException e) {
@@ -40,7 +46,7 @@ public class Extrato extends Transacao {
         rs = MySQLDAO.getResultSet(query);
         try {
             while (rs.next()) {
-                lista.add(new DepositaBEAN(rs.getInt("iddeposita"), rs.getDouble("valordeposita"), rs.getInt("idconta")));
+                lista.add(new DepositaBEAN(rs.getInt("iddeposita"), rs.getDouble("valordeposita"), rs.getString("idconta")));
             }
             rs.close();
         } catch (SQLException e) {

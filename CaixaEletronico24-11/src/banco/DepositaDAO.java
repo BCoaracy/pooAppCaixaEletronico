@@ -1,6 +1,10 @@
 package banco;
 
 public class DepositaDAO extends Transacao{
+
+    public DepositaDAO() {
+        MySQLDAO.getConnection();
+    }
     
     public void adiciona(DepositaBEAN deposita){
         String query = "INSERT INTO deposita(idconta,valordeposita) values(?,?)";
