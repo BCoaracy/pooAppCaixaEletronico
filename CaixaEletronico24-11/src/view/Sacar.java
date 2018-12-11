@@ -1,10 +1,15 @@
 package view;
 
+import controller.BancoDados;
 import model.SaqueBEAN;
 import model.SaqueDAO;
 import javax.swing.JOptionPane;
 
 public class Sacar extends javax.swing.JFrame {
+
+    private static final int TRUE = 1;
+    private static final int FALSE = 0;
+    protected int validaNConta, validaValor;
 
     public Sacar() {
         initComponents();
@@ -98,11 +103,19 @@ public class Sacar extends javax.swing.JFrame {
     private void btnEfetuaSaqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEfetuaSaqueActionPerformed
         SaqueBEAN saqueB = new SaqueBEAN();
         SaqueDAO saqueD = new SaqueDAO();
+        BancoDados autentica = new BancoDados();
         try {
-            
+
             System.out.println(CampoValorSacar.getText() + "-" + CampoNContaSacar.getText());
+            if(autentica.isExistNconta(CampoNContaSacar.getText())){
+                saqueB.setIdConta(CampoNContaSacar.getText());
+                validaNConta = TRUE;
+            }else{
+                JOptionPane.showMessageDialog(null, "Codigo ja existente!");
+                CampoNContaSacar.setText("");
+                validaNConta = FALSE;
+            }
             
-            saqueB.setIdConta(CampoNContaSacar.getText());
             saqueB.setValorSaque(Double.parseDouble(CampoValorSacar.getText()));
             saqueD.adiciona(saqueB);
 

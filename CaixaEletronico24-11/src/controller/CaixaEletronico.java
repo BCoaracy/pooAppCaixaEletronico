@@ -7,6 +7,8 @@ public abstract class CaixaEletronico {
     
     public abstract Boolean isExist(String senha, String nconta);
     
+    public abstract Boolean isExistNconta(String nconta);
+    
     public abstract boolean validaValor(double valor);
     
     public abstract boolean validaTransacao(double valor, ContasBEAN conta);

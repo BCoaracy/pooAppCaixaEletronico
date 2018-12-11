@@ -60,6 +60,22 @@ public class BancoDados extends CaixaEletronico {
 //        }
 //        return result;
 //    }
+
+    @Override
+    public Boolean isExistNconta(String nconta) {
+        Boolean result = false;
+        ResultSet rs = null;
+        rs = MySQLDAO.getResultSet("SELECT * FROM contas WHERE numconta=?", nconta);
+        try {
+            if (rs.next()) {
+                result = true;
+            }
+            rs.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 }
 
 //    ArrayList<Conta> listaConta = new ArrayList<Conta>();

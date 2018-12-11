@@ -1,11 +1,17 @@
 package view;
 
+import controller.BancoDados;
 import model.ContasBEAN;
 import model.ContasDAO;
 import model.MySQLDAO;
 import javax.swing.JOptionPane;
 
 public class CadastraContas extends javax.swing.JFrame {
+    
+    private static final int TRUE = 1;
+    private static final int FALSE = 0;
+    protected int validaNConta, validaValor;
+    
 
     public CadastraContas() {
         initComponents();
@@ -110,16 +116,37 @@ public class CadastraContas extends javax.swing.JFrame {
     private void btnCriaContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriaContaActionPerformed
         ContasBEAN contaB = new ContasBEAN();
         ContasDAO contaD = new ContasDAO();
+        BancoDados autentica = new BancoDados();
         try {
+            
+            if (autentica.isExistNconta(nContaCadastra.getText())) {
+                JOptionPane.showMessageDialog(null, "Codigo ja existente!");
+                nContaCadastra.setText("");
+                validaNConta = FALSE;
+            } else {
+                contaB.setNumConta(nContaCadastra.getText());
+                validaNConta = TRUE;
+            }
 
-            contaB.setNumConta(nContaCadastra.getText());
-            contaB.setSaldoDispConta(Double.parseDouble(saldoDispCadastra.getText()));
-            contaB.setSaldoTotalConta(contaB.getSaldoDispConta() + 1000);
+            if (autentica.validaValor(Double.parseDouble(saldoDispCadastra.getText()))) {
+                contaB.setSaldoDispConta(Double.parseDouble(saldoDispCadastra.getText()));
+                contaB.setSaldoTotalConta(contaB.getSaldoDispConta() + 1000);
+                validaValor = TRUE;
+            } else {
+                JOptionPane.showMessageDialog(null, "Valor invalido!");
+                saldoDispCadastra.setText("");
+                validaValor = FALSE;
+            }
+
             contaB.setSenhaConta(senhaCadastra.getText());
-
-            contaD.create(contaB);
-            limpaCampo();
-            JOptionPane.showMessageDialog(null, "Castrado!");
+            
+            if(validaNConta == TRUE && validaValor == TRUE){
+                contaD.create(contaB);
+                limpaCampo();
+                JOptionPane.showMessageDialog(null, "Castrado!");
+            }
+                
+            
 
         } catch (Exception e) {
             e.printStackTrace();
