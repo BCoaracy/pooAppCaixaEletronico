@@ -7,6 +7,7 @@ import model.SaqueBEAN;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import model.ContasBEAN;
 
 public class Extrato extends javax.swing.JFrame {
 
@@ -28,6 +29,8 @@ public class Extrato extends javax.swing.JFrame {
         btnDepositoExtrato = new javax.swing.JToggleButton();
         btnSaqueExtrato = new javax.swing.JToggleButton();
         btnLimpaExtrato = new javax.swing.JToggleButton();
+        campoSaldoDispExtrato = new javax.swing.JTextField();
+        btnBuscaSaldoExtrato = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -77,6 +80,13 @@ public class Extrato extends javax.swing.JFrame {
             }
         });
 
+        btnBuscaSaldoExtrato.setText("Busca Saldo");
+        btnBuscaSaldoExtrato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscaSaldoExtratoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -84,14 +94,21 @@ public class Extrato extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnDepositoExtrato)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnDepositoExtrato)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnSaqueExtrato)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnLimpaExtrato)))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(campoSaldoDispExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSaqueExtrato)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnLimpaExtrato)))
-                .addContainerGap())
+                        .addComponent(btnBuscaSaldoExtrato))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,7 +118,11 @@ public class Extrato extends javax.swing.JFrame {
                     .addComponent(btnDepositoExtrato)
                     .addComponent(btnSaqueExtrato)
                     .addComponent(btnLimpaExtrato))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBuscaSaldoExtrato)
+                    .addComponent(campoSaldoDispExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -176,6 +197,17 @@ public class Extrato extends javax.swing.JFrame {
         dtmPrincipal.setNumRows(0);
     }//GEN-LAST:event_btnLimpaExtratoActionPerformed
 
+    private void btnBuscaSaldoExtratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaSaldoExtratoActionPerformed
+        List<ContasBEAN> lista = new ArrayList<ContasBEAN>();
+        try {
+            lista = extrato.listaConta(Login.nconta);
+            String saldoDisp = Double.toString(lista.get(0).getSaldoDispConta());
+            campoSaldoDispExtrato.setText(saldoDisp);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_btnBuscaSaldoExtratoActionPerformed
+
     public static void main(String args[]) {
 
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -208,9 +240,11 @@ public class Extrato extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton btnBuscaSaldoExtrato;
     private javax.swing.JToggleButton btnDepositoExtrato;
     private javax.swing.JToggleButton btnLimpaExtrato;
     private javax.swing.JToggleButton btnSaqueExtrato;
+    private javax.swing.JTextField campoSaldoDispExtrato;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabelaExtrato;

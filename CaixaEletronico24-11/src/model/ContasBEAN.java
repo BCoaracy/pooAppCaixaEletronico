@@ -8,7 +8,12 @@ public class ContasBEAN {
     private double saldoTotalConta;
     private String senhaConta;
     
-    
+    public ContasBEAN(){
+    }
+
+    public ContasBEAN(double saldoDispConta) {
+        this.saldoDispConta = saldoDispConta;
+    }
 
     public int getIdConta() {
         return idConta;

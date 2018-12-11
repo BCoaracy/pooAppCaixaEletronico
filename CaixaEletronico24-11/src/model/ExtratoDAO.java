@@ -55,6 +55,22 @@ public class ExtratoDAO extends Transacao {
         return lista;
     }
 //-----------------DEPOSITO----------------------------------------------------------------------------------------    
+//-----------------CONTA-------------------------------------------------------------------------------------------
+    public ArrayList<ContasBEAN> listaConta(String conta){
+        ArrayList<ContasBEAN> lista = new ArrayList<ContasBEAN>();
+        ResultSet rs = null;
+        rs = MySQLDAO.getResultSet("SELECT * FROM contas WHERE numconta = ?", conta);
+        try {
+            while (rs.next()) {
+                lista.add(new ContasBEAN(rs.getDouble("saldodispconta")));
+            }
+            rs.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return lista;
+    }
+//-----------------CONTA-------------------------------------------------------------------------------------------
 }
 
 //    public void imprimeListaConta(BancoDados banco) {
