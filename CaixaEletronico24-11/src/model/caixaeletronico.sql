@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 11-Dez-2018 às 13:38
+-- Generation Time: 11-Dez-2018 às 20:02
 -- Versão do servidor: 10.1.35-MariaDB
 -- versão do PHP: 7.2.9
 
@@ -42,7 +42,9 @@ CREATE TABLE `contas` (
 
 INSERT INTO `contas` (`idconta`, `numconta`, `saldodispconta`, `saldototalconta`, `senhaconta`) VALUES
 (2, '01', '174.80', '1174.80', 'newchave'),
-(3, '295221', '132.00', '1132.00', 'root');
+(3, '295221', '132.00', '1132.00', 'root'),
+(4, '222', '46.00', '1046.00', 'dedo'),
+(7, '333', '50.00', '1050.00', 'agora');
 
 -- --------------------------------------------------------
 
@@ -123,7 +125,7 @@ ALTER TABLE `saque`
 -- AUTO_INCREMENT for table `contas`
 --
 ALTER TABLE `contas`
-  MODIFY `idconta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idconta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `deposita`
